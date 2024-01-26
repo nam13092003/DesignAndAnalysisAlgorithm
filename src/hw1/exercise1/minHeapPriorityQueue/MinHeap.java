@@ -4,12 +4,15 @@ public class MinHeap {
     private int[] data;
     int n;
     private int defaultSize = 12000;
+    protected int countSwap;
+    protected int countComparision;
 
     public MinHeap() {
         this.data = new int[defaultSize];
     }
 
     private void swap(int i, int j) {
+        countSwap++;
         int tmp = data[i];
         data[i] = data[j];
         data[j] = tmp;
@@ -19,6 +22,7 @@ public class MinHeap {
         int i = n - 1;
         while (i > 0) {
             int p = parent(i);
+            countComparision++;
             if (data[i] > data[p]) break;
             swap(i, p);
             i = p;
@@ -53,10 +57,12 @@ public class MinHeap {
             int smallChildren = lefIdx;
             if (hasRight(i)) {
                 int rightIdx = right(i);
+                countComparision++;
                 if (data[rightIdx] <= data[lefIdx]) {
                     smallChildren = rightIdx;
                 }
             }
+            countComparision++;
             if (data[smallChildren] >= data[i]) {
                 break;
             }

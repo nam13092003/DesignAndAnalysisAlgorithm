@@ -3,7 +3,11 @@ package hw1.exercise1;
 public class QuickSort implements Sort {
     int[] data;
     double time;
-    public void swap(int[] arr, int i, int j) {
+    int countSwap;
+    int countComparision;
+
+    public void swap(int i, int j) {
+        countSwap++;
         int tmp = data[i];
         data[i] = data[j];
         data[j] = tmp;
@@ -13,12 +17,15 @@ public class QuickSort implements Sort {
         int pivot = data[high]; // lấy high làm pivot
         int i = low - 1; // duyệt từ index -1
         for (int j = low; j < high; j++) {
+            countComparision++;
             if (pivot > data[j]) {
                 i++;
-                swap(data, i, j); // xếp lại chỗ cho hai 2 phần được chia theo pivot
+                swap(i, j); // xếp lại chỗ cho hai 2 phần được chia theo pivot
             }
         }
-        swap(data, i + 1, high); // xếp lại vị trí cho pivot
+        if (i + 1 != high) {
+            swap(i + 1, high); // xếp lại vị trí cho pivot
+        }
         return i + 1;
     }
 
@@ -45,5 +52,15 @@ public class QuickSort implements Sort {
     @Override
     public double getTime() {
         return time;
+    }
+
+    @Override
+    public int getCountComparisions() {
+        return countComparision;
+    }
+
+    @Override
+    public int getCountSwap() {
+        return countSwap;
     }
 }

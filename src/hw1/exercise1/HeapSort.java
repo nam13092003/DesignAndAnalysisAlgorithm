@@ -2,9 +2,10 @@ package hw1.exercise1;
 
 import hw1.exercise1.minHeapPriorityQueue.MinHeap;
 
-public class HeapSort implements Sort{
+public class HeapSort extends MinHeap implements Sort {
     int[] data;
     double time;
+
     @Override
     public void sort() {
         MinHeap minHeap = new MinHeap();
@@ -27,5 +28,15 @@ public class HeapSort implements Sort{
     @Override
     public double getTime() {
         return time;
+    }
+
+    @Override
+    public int getCountComparisions() {
+        return super.countComparision;
+    }
+
+    @Override
+    public int getCountSwap() {
+        return super.countSwap;
     }
 }
