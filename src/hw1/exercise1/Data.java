@@ -36,21 +36,13 @@ public class Data {
         int length = 10;
         for (int i = 0; i < statistics.length; i++) {
             double average = 0;
-<<<<<<< HEAD
-            for (int j = 0; j < 100; j++) {
-=======
             for (int j = 0; j < 10; j++) {
->>>>>>> 2b3c2c3 (homeworkDSA)
                 inputData(length);
                 sort();
                 average += sort.getTime();
             }
             statistics[count][0] = length;
-<<<<<<< HEAD
-            statistics[count][1] = average / 100;
-=======
             statistics[count][1] = average / 10;
->>>>>>> 2b3c2c3 (homeworkDSA)
             count++;
             length += 100;
         }
