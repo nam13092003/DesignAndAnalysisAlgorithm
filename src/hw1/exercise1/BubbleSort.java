@@ -1,10 +1,13 @@
 package hw1.exercise1;
 
+import java.util.Arrays;
+
 public class BubbleSort implements Sort {
     int[] data;
     double time;
     int countSwap;
     int countComparision;
+    boolean canPrint = false;
 
     public void swap(int i, int j) {
         countSwap++;
@@ -15,10 +18,13 @@ public class BubbleSort implements Sort {
 
     public void bubbleSort() {
         for (int i = 0; i < data.length - 1; i++) {
-            for (int j = 1; j < data.length - i - 1; j++) {
+            for (int j = 0; j < data.length - i - 1; j++) {
                 countComparision++;
                 if (data[j] > data[j + 1]) {
                     swap(j, j + 1);
+                }
+                if (canPrint){
+                    System.out.println(Arrays.toString(data));
                 }
             }
         }
@@ -49,5 +55,15 @@ public class BubbleSort implements Sort {
     @Override
     public int getCountSwap() {
         return countSwap;
+    }
+
+    @Override
+    public void setCanPrint() {
+        canPrint = true;
+    }
+
+    @Override
+    public String getName() {
+        return "BubbleSort";
     }
 }

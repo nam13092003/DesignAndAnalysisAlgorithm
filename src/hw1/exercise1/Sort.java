@@ -10,4 +10,6 @@ public interface Sort {
     int getCountComparisions();
 
     int getCountSwap();
+    void setCanPrint();
+    String getName();
 }

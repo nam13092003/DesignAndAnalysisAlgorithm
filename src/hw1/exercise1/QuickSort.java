@@ -1,10 +1,13 @@
 package hw1.exercise1;
 
+import java.util.Arrays;
+
 public class QuickSort implements Sort {
     int[] data;
     double time;
     int countSwap;
     int countComparision;
+    boolean canPrint = false;
 
     public void swap(int i, int j) {
         countSwap++;
@@ -22,9 +25,15 @@ public class QuickSort implements Sort {
                 i++;
                 swap(i, j); // xếp lại chỗ cho hai 2 phần được chia theo pivot
             }
+            if (canPrint) {
+                System.out.println(Arrays.toString(data));
+            }
         }
         if (i + 1 != high) {
             swap(i + 1, high); // xếp lại vị trí cho pivot
+            if (canPrint) {
+                System.out.println(Arrays.toString(data));
+            }
         }
         return i + 1;
     }
@@ -62,5 +71,13 @@ public class QuickSort implements Sort {
     @Override
     public int getCountSwap() {
         return countSwap;
+    }
+
+    @Override
+    public void setCanPrint() {
+        canPrint = true;
+    }
+    public String getName() {
+        return "QuickSort";
     }
 }

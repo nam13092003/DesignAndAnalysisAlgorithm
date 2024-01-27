@@ -1,10 +1,13 @@
 package hw1.exercise1;
 
+import java.util.Arrays;
+
 public class InsertionSort implements Sort {
     int[] data;
     double time;
     int countSwap;
     int countComparision;
+    boolean canPrint = false;
 
     public void insertionSort() {
         for (int i = 1; i < data.length; i++) {
@@ -15,8 +18,14 @@ public class InsertionSort implements Sort {
                 data[j + 1] = data[j];
                 countSwap++;
                 countComparision++;
+                if (canPrint) {
+                    System.out.println(Arrays.toString(data));
+                }
             }
             data[j + 1] = next;
+            if (canPrint) {
+                System.out.println(Arrays.toString(data));
+            }
         }
     }
 
@@ -45,5 +54,14 @@ public class InsertionSort implements Sort {
     @Override
     public int getCountSwap() {
         return countSwap;
+    }
+
+    @Override
+    public void setCanPrint() {
+        canPrint = true;
+    }
+
+    public String getName() {
+        return "InsertionSort";
     }
 }

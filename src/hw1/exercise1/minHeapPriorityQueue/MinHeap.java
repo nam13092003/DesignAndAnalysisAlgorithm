@@ -1,7 +1,7 @@
 package hw1.exercise1.minHeapPriorityQueue;
 
 public class MinHeap {
-    private int[] data;
+     int[] data;
     int n;
     private int defaultSize = 12000;
     protected int countSwap;
@@ -91,5 +91,21 @@ public class MinHeap {
         n--;
         downHeap();
         return tmp;
+    }
+
+    public int[] getData() {
+        return data;
+    }
+
+    public int getCountSwap() {
+        return countSwap;
+    }
+
+    public int getCountComparision() {
+        return countComparision;
+    }
+
+    public void setData(int[] data) {
+        this.data = data;
     }
 }

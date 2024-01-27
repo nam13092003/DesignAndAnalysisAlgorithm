@@ -1,10 +1,13 @@
 package hw1.exercise1;
 
+import java.util.Arrays;
+
 public class MergeSort implements Sort {
     int[] data;
     double time;
     int countSwap;
     int countComparision;
+    boolean canPrint=false;
 
     public void merge(int[] data, int left, int mid, int right) {
         int n1 = mid - left + 1;
@@ -18,7 +21,7 @@ public class MergeSort implements Sort {
             Right[i] = data[mid + 1 + i];
         }
         int i = 0, j = 0;
-        int k = 0;
+        int k = left;
         while (i < n1 && j < n2) {
             countComparision++;
             if (Left[i] < Right[j]) {
@@ -31,18 +34,27 @@ public class MergeSort implements Sort {
                 j++;
             }
             k++;
+            if (canPrint) {
+                System.out.println(Arrays.toString(data));
+            }
         }
         while (i < n1) {
             if (k != i) countSwap++;
             data[k] = Left[i];
             i++;
             k++;
+            if (canPrint) {
+                System.out.println(Arrays.toString(data));
+            }
         }
         while (j < n2) {
             if (k != j) countSwap++;
             data[k] = Right[j];
             j++;
             k++;
+            if (canPrint) {
+                System.out.println(Arrays.toString(data));
+            }
         }
     }
 
@@ -59,7 +71,7 @@ public class MergeSort implements Sort {
     public void sort() {
         double preTime = System.nanoTime();
         mergeSort(data, 0, data.length - 1);
-        time = System.nanoTime() - preTime;
+        time = System.nanoTime()- preTime;
     }
 
     @Override
@@ -69,7 +81,7 @@ public class MergeSort implements Sort {
 
     @Override
     public double getTime() {
-        return 0;
+        return time;
     }
 
     @Override
@@ -80,5 +92,13 @@ public class MergeSort implements Sort {
     @Override
     public int getCountSwap() {
         return countSwap;
+    }
+
+    @Override
+    public void setCanPrint() {
+        canPrint = true;
+    }
+    public String getName() {
+        return "MergeSort";
     }
 }

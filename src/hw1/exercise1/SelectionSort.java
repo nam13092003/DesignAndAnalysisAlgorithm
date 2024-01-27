@@ -1,10 +1,13 @@
 package hw1.exercise1;
 
+import java.util.Arrays;
+
 public class SelectionSort implements Sort {
     int[] data;
     double time;
     int countSwap;
     int countComparision;
+    boolean canPrint = false;
 
     public void swap(int i, int j) {
         countSwap++;
@@ -24,6 +27,9 @@ public class SelectionSort implements Sort {
             }
             if (maxIndex != i) {
                 swap(i, maxIndex);
+            }
+            if (canPrint) {
+                System.out.println(Arrays.toString(data));
             }
         }
     }
@@ -53,5 +59,13 @@ public class SelectionSort implements Sort {
     @Override
     public int getCountSwap() {
         return countSwap;
+    }
+
+    @Override
+    public void setCanPrint() {
+        canPrint = true;
+    }
+    public String getName() {
+        return "SelectionSort";
     }
 }

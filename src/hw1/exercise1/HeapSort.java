@@ -2,27 +2,35 @@ package hw1.exercise1;
 
 import hw1.exercise1.minHeapPriorityQueue.MinHeap;
 
-public class HeapSort extends MinHeap implements Sort {
-    int[] data;
+import java.util.Arrays;
+
+public class HeapSort implements Sort {
+    MinHeap minHeap = new MinHeap();
     double time;
+    boolean canPrint = false;
 
     @Override
     public void sort() {
-        MinHeap minHeap = new MinHeap();
         double preTime = System.nanoTime();
-        for (int i = 0; i < data.length; i++) {
-            minHeap.insert(data[i]);
+        for (int i = 0; i < minHeap.getData().length; i++) {
+            minHeap.insert(minHeap.getData()[i]);
         }
-        int[] arr = new int[data.length];
-        for (int i = 0; i < minHeap.length(); i++) {
+        int[] arr = Arrays.copyOf(minHeap.getData(), minHeap.getData().length);
+        if (canPrint) {
+            System.out.println(Arrays.toString(arr));
+        }
+        for (int i = 0; i < arr.length; i++) {
             arr[i] = minHeap.removeMin();
+            if (canPrint) {
+                System.out.println(Arrays.toString(arr));
+            }
         }
         time = System.nanoTime() - preTime;
     }
 
     @Override
     public void setData(int[] data) {
-        this.data = data;
+        minHeap.setData(data);
     }
 
     @Override
@@ -32,11 +40,20 @@ public class HeapSort extends MinHeap implements Sort {
 
     @Override
     public int getCountComparisions() {
-        return super.countComparision;
+        return minHeap.getCountSwap();
     }
 
     @Override
     public int getCountSwap() {
-        return super.countSwap;
+        return minHeap.getCountSwap();
+    }
+
+    @Override
+    public void setCanPrint() {
+        canPrint = true;
+    }
+
+    public String getName() {
+        return "HeapSort";
     }
 }
