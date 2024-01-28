@@ -71,9 +71,8 @@ public class BinarySearchTree extends BinaryTree {
                 root.getRightChildren().setParent(minNode);
                 minNode.setRightChildren(root.getRightChildren());
                 minNode.setLeftChildren(root.getLeftChildren());
-                root = minNode;
-                root.setParent(null);
-               double a =1;
+                this.root = minNode;
+                this.root.setParent(null);
             } else if (root.hasRight() && !root.hasLeft()) {
                 Node minNode = findMin(root.getRightChildren());
                 if (minNode.hasRight()) {
@@ -82,13 +81,13 @@ public class BinarySearchTree extends BinaryTree {
                 }
                 root.getRightChildren().setParent(minNode);
                 minNode.setRightChildren(root.getRightChildren());
-                root = minNode;
-                root.setParent(null);
+                this.root = minNode;
+                this.root.setParent(null);
             } else if (!root.hasRight() && root.hasLeft()) {
-                root = root.getLeftChildren();
-                root.setParent(null);
+                this.root = root.getLeftChildren();
+                this.root.setParent(null);
             } else {
-                root = null;
+               this.root = null;
             }
             return;
         }
@@ -167,12 +166,11 @@ class Test {
 //        binarySearchTree.insert(random.nextInt(0,10),root);
 //        binarySearchTree.insert(random.nextInt(0,10),root);
 //        binarySearchTree.insert(random.nextInt(0,10),root);
-        binarySearchTree.printTree(root, 1);
+        binarySearchTree.printTree(binarySearchTree.root, 1);
 //        System.out.println(binarySearchTree.findMin());
-        binarySearchTree.delete(5, root);
+        binarySearchTree.delete(5, binarySearchTree.root);
         System.out.println("--------------------------------------------");
-        Node node = root;
-        binarySearchTree.printTree(root, 1);
+        binarySearchTree.printTree(binarySearchTree.root, 1);
 
     }
 }
