@@ -1,7 +1,9 @@
 package hw1.exercise3;
 
 public class BinaryTree {
-   static class Node{
+    protected Node root;
 
+    public void setRoot(Node root) {
+        this.root = root;
     }
 }
