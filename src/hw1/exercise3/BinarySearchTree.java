@@ -37,6 +37,9 @@ public class BinarySearchTree extends BinaryTree {
     }
 
     public void insert(int x, Node root) {
+        if (this.root == null) {
+            this.root = root;
+        }
         if (x == root.getData()) return;
         Node node = root;
         if (x > node.getData()) {

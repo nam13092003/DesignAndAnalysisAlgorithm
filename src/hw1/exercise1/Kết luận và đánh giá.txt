@@ -1,0 +1,15 @@
+Nhận xét và kết luận:
+- Selection sort, bubble sort và insertion sort thích hợp cho các tập dữ liệu nhỏ hoặc gần như đã sắp xếp sẵn.
+- Quick sort thường hiệu quả trên các tập dữ liệu lớn, nhưng có thể gặp trường hợp xấu nếu dữ liệu gần như đã sắp xếp sẵn.
+- Merge sort là một thuật toán hiệu quả và ổn định cho mọi trường hợp, nhưng tốn bộ nhớ hơn so với thuật toán Quick sort.
+- Heap sort có hiệu suất ổn định trên mọi trường hợp và không cần bộ nhớ phụ, nhưng thường có thời gian thực thi lâu hơn so với các thuật toán khác.
+--> Vì vậy, việc lựa chọn thuật toán thích hợp phụ thuộc vào kích thước của dữ liệu và các yêu cầu về bộ nhớ.
+
+
+
+Quan điểm về độ phức tạp thuật toán:
+- Thời gian thực thi và độ phức tạp: Độ phức tạp thời gian của một thuật toán là đo số lần các phép toán cơ bản (so sánh, gán, v.v.)
+được thực hiện theo kích thước của đầu vào.
+    + thời gian từ n^2 trở lên coi là thời gian xấu, nlog(n) coi là thời gian tốt.
+- Độ phức tạp không gian:  là đo tài nguyên bộ nhớ mà thuật toán sử dụng dựa trên kích thước đầu vào. Một thuật toán có thể có độ phức
+ tạp thời gian tốt nhưng độ phức tạp không gian lớn, và ngược lại.(ví dụ như Quick sort và Merge sort)
