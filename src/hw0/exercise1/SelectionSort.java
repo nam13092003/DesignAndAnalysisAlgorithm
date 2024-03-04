@@ -1,8 +1,8 @@
-package hw1.exercise1;
+package hw0.exercise1;
 
 import java.util.Arrays;
 
-public class QuickSort implements Sort {
+public class SelectionSort implements Sort {
     int[] data;
     double time;
     int countSwap;
@@ -16,41 +16,29 @@ public class QuickSort implements Sort {
         data[j] = tmp;
     }
 
-    public int partition(int[] data, int low, int high) {
-        int pivot = data[high]; // lấy high làm pivot
-        int i = low - 1; // duyệt từ index -1
-        for (int j = low; j < high; j++) {
-            countComparision++;
-            if (pivot > data[j]) {
-                i++;
-                swap(i, j); // xếp lại chỗ cho hai 2 phần được chia theo pivot
+    public void selectionSort() {
+        for (int i = data.length - 1; i >= 0; --i) {
+            int maxIndex = i;
+            for (int j = 0; j < i; j++) {
+                countComparision++;
+                if (data[maxIndex] < data[j]) {
+                    maxIndex = j;
+                }
+            }
+            if (maxIndex != i) {
+                swap(i, maxIndex);
             }
             if (canPrint) {
                 System.out.println(Arrays.toString(data));
             }
         }
-        if (i + 1 != high) {
-            swap(i + 1, high); // xếp lại vị trí cho pivot
-            if (canPrint) {
-                System.out.println(Arrays.toString(data));
-            }
-        }
-        return i + 1;
     }
 
     @Override
     public void sort() {
         double preTime = System.nanoTime();
-        quickSort(data, 0, data.length - 1);
+        selectionSort();
         time = System.nanoTime() - preTime;
-    }
-
-    public void quickSort(int[] data, int low, int high) {
-        if (low < high) {
-            int pi = partition(data, low, high);
-            quickSort(data, low, pi - 1);
-            quickSort(data, pi + 1, high);
-        }
     }
 
     @Override
@@ -78,6 +66,6 @@ public class QuickSort implements Sort {
         canPrint = true;
     }
     public String getName() {
-        return "QuickSort";
+        return "SelectionSort";
     }
 }

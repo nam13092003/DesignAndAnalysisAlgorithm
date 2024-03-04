@@ -1,8 +1,8 @@
-package hw1.exercise3;
+package hw0.exercise3;
 
-import hw1.exercise1.MergeSort;
-import hw1.exercise2.BinarySearchSortedArray;
-import hw1.exercise2.LinearSearchArray;
+import hw0.exercise1.MergeSort;
+import hw0.exercise2.BinarySearchSortedArray;
+import hw0.exercise2.LinearSearchArray;
 
 import java.util.Random;
 
@@ -36,7 +36,7 @@ public class TestTimeComparision {
     public static void main(String[] args) {
 
         Random random = new Random();
-        int[] n = new int[]{1000, 10000, 100000};
+        int[] n = new int[]{1000, 10000, 100000,1000000};
         for (int i = 0; i < n.length; i++) {
             int[] arr = new int[n[i]];
             for (int j = 0; j < arr.length; j++) {

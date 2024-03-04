@@ -1,4 +1,4 @@
-package hw1.exercise2;
+package hw0.exercise2;
 
 import java.util.Random;
 

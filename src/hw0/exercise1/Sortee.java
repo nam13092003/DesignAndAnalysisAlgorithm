@@ -1,4 +1,4 @@
-package hw1.exercise1;
+package hw0.exercise1;
 
 public class Sortee {
     private Sort sortee;

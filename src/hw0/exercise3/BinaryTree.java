@@ -1,4 +1,4 @@
-package hw1.exercise3;
+package hw0.exercise3;
 
 public class BinaryTree {
     protected Node root;

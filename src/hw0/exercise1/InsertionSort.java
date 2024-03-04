@@ -1,33 +1,28 @@
-package hw1.exercise1;
+package hw0.exercise1;
 
 import java.util.Arrays;
 
-public class SelectionSort implements Sort {
+public class InsertionSort implements Sort {
     int[] data;
     double time;
     int countSwap;
     int countComparision;
     boolean canPrint = false;
 
-    public void swap(int i, int j) {
-        countSwap++;
-        int tmp = data[i];
-        data[i] = data[j];
-        data[j] = tmp;
-    }
-
-    public void selectionSort() {
-        for (int i = data.length - 1; i >= 0; --i) {
-            int maxIndex = i;
-            for (int j = 0; j < i; j++) {
+    public void insertionSort() {
+        for (int i = 1; i < data.length; i++) {
+            int j;
+            int next = data[i];
+            countComparision++;
+            for (j = i - 1; j >= 0 && data[j] > next; j--) {
+                data[j + 1] = data[j];
+                countSwap++;
                 countComparision++;
-                if (data[maxIndex] < data[j]) {
-                    maxIndex = j;
+                if (canPrint) {
+                    System.out.println(Arrays.toString(data));
                 }
             }
-            if (maxIndex != i) {
-                swap(i, maxIndex);
-            }
+            data[j + 1] = next;
             if (canPrint) {
                 System.out.println(Arrays.toString(data));
             }
@@ -37,7 +32,7 @@ public class SelectionSort implements Sort {
     @Override
     public void sort() {
         double preTime = System.nanoTime();
-        selectionSort();
+        insertionSort();
         time = System.nanoTime() - preTime;
     }
 
@@ -65,7 +60,8 @@ public class SelectionSort implements Sort {
     public void setCanPrint() {
         canPrint = true;
     }
+
     public String getName() {
-        return "SelectionSort";
+        return "InsertionSort";
     }
 }

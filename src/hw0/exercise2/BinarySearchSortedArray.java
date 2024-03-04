@@ -1,6 +1,6 @@
-package hw1.exercise2;
+package hw0.exercise2;
 
-import hw1.exercise1.MergeSort;
+import hw0.exercise1.MergeSort;
 
 import java.util.Arrays;
 import java.util.Random;

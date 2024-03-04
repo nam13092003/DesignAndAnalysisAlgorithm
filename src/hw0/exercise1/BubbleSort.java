@@ -1,30 +1,31 @@
-package hw1.exercise1;
+package hw0.exercise1;
 
 import java.util.Arrays;
 
-public class InsertionSort implements Sort {
+public class BubbleSort implements Sort {
     int[] data;
     double time;
     int countSwap;
     int countComparision;
     boolean canPrint = false;
 
-    public void insertionSort() {
-        for (int i = 1; i < data.length; i++) {
-            int j;
-            int next = data[i];
-            countComparision++;
-            for (j = i - 1; j >= 0 && data[j] > next; j--) {
-                data[j + 1] = data[j];
-                countSwap++;
+    public void swap(int i, int j) {
+        countSwap++;
+        int tmp = data[i];
+        data[i] = data[j];
+        data[j] = tmp;
+    }
+
+    public void bubbleSort() {
+        for (int i = 0; i < data.length - 1; i++) {
+            for (int j = 0; j < data.length - i - 1; j++) {
                 countComparision++;
-                if (canPrint) {
+                if (data[j] > data[j + 1]) {
+                    swap(j, j + 1);
+                }
+                if (canPrint){
                     System.out.println(Arrays.toString(data));
                 }
-            }
-            data[j + 1] = next;
-            if (canPrint) {
-                System.out.println(Arrays.toString(data));
             }
         }
     }
@@ -32,7 +33,7 @@ public class InsertionSort implements Sort {
     @Override
     public void sort() {
         double preTime = System.nanoTime();
-        insertionSort();
+        bubbleSort();
         time = System.nanoTime() - preTime;
     }
 
@@ -61,7 +62,8 @@ public class InsertionSort implements Sort {
         canPrint = true;
     }
 
+    @Override
     public String getName() {
-        return "InsertionSort";
+        return "BubbleSort";
     }
 }

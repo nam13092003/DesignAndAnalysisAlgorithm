@@ -1,6 +1,5 @@
-package hw1.exercise1;
+package hw0.exercise1;
 
-import java.util.Arrays;
 import java.util.Random;
 
 public class TestRunTime {

@@ -1,4 +1,4 @@
-package hw1.exercise1.minHeapPriorityQueue;
+package hw0.exercise1.minHeapPriorityQueue;
 
 public class MinHeap {
      int[] data;
