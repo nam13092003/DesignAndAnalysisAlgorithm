@@ -1,0 +1,7 @@
+bất biến vòng lặp: mảng là (A1,...,Aj)
+▪ tính khởi tạo: mảng duyệt lần đầu có (A1,...,A[n-1],Amax) với Amax là phần tử lớn nhất của mảng có độ dài n
+
+▪ tính duy trì: nếu mảng i phần tử có (A1,...,A[i-1],Amax) thì mảng i-1 phần tủ(bỏ phần tử thứ n) có (A1,...,A[i-2],Amax) với Amax là
+ phần tử lớn nhất của mảng có độ dài i
+
+▪ tính dừng: when i=n, after n(n+1)/2 iteratives (n+ n-1 + n-2 +...+1).

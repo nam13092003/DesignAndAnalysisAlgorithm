@@ -1,0 +1,16 @@
++) pseudocode
+SELECTION-SORT(Array)
+1. for i = 0 to Array.length - 2
+2.          min_index = i
+4.          for j = i + 1 to A.length
+5.                    if A[j] < A[min_index]
+6.                              min_index = j
+8.          tmp = A[i]
+9.          A[i] = A[min_index]
+10.       A[min_index] = tmp
+
++) duyệt n-1 phần tử đầu tiên vì khi duyệt đến phần tử thứ n-1 đã có bước swap phần tử này với phần tử cuối cùng(nếu phần tử
+thứ n-1 lớn hơn phần tử thứ n , nếu không lớn hơn thi k cần swap)
+
++) bestCase: O(n^2)
+    worstCase:O(n^2)

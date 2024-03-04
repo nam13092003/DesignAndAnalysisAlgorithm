@@ -1,0 +1,15 @@
++) pseudocode
+BUBBLE-SORT(Array)
+1. for i = 0 to Array.length
+4.          for j = i + 1 to A.length-i-1
+5.               if A[j] > A[j+1]
+8.                  tmp = A[j]
+9.                  A[j] = A[j+1]
+10.                 A[j+1] = tmp
+end
+
++) khi bắt đầu vòng for ngoài chúng ta vào vòng for thứ 2 đã duyệt đến phần tử thứ n
+sau vòng for này đã tìm đc phần tử nằm đúng vị trí thứ n của mảng(phần tử lớn nhất của mảng)
+
++) bestCase: O(n^2)
+    worstCase:O(n^2)
